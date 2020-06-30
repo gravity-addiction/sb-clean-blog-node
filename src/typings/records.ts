@@ -33,7 +33,7 @@ export interface RecordQuery {
 export interface ResultsRecordsByState {
     abbr: string;
     state: string;
-    records: Array[ResultsRecordUSPA]
+    records: Array<ResultsRecordUSPA>;
 }
 // Records By State Params
 export interface RecordsByStateParams {

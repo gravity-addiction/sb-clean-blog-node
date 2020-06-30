@@ -1,5 +1,8 @@
 import { Config } from './model';
 
+const path = require('path'); 
+require('dotenv').config({ path: '.env' });
+
 const config: Config = {
     port: <number>Number(<string>process.env.PORT) || 8200,
     devMode: <boolean>(process.env.DEV_MODE === 'true' || false),
