@@ -7,7 +7,7 @@ import { ReadProfileParams, ReadProfileQuery, ResultsProfile } from '../../../ty
 export const profileRead: fastify.RoutePlugin = async function(instance, options): Promise<void> {
     instance.route({
         method: 'GET',
-        url: '/:id',
+        url: '/:profile',
         schema,
         handler,
     });
@@ -17,20 +17,10 @@ export const handler: fastify.RequestHandlerWithParams<ReadProfileParams> = asyn
     request,
     reply
 ): Promise<ResultsProfile> {
-    console.log('Here!');
     const readProfileQuery: ReadProfileQuery = request.query as ReadProfileQuery;
     const readProfileParams: ReadProfileParams = request.params;
 
-    let foundProfile: Profile;
-
-    if (readProfileQuery.findBy === 'slug') {
-        console.log('A');
-        foundProfile = await findProfileBySlug(request, readProfileParams.id);
-    } else {
-        console.log('B');
-        foundProfile = await findProfile(request, readProfileParams.id);
-    }
-
+    const foundProfile: Profile = await findProfileBySlug(request, readProfileParams.profile);
     return foundProfile.toResultsProfile();
 };
 
@@ -50,6 +40,7 @@ const schema = {
                 id: { type: 'string' },
                 slug: { type: 'string' },
                 name: { type: 'string' },
+                people_id: { type: 'string' },
             },
         },
     },

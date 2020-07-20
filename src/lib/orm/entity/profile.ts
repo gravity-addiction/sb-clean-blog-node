@@ -7,6 +7,9 @@ export class Profile {
     @PrimaryGeneratedColumn('uuid')
     id!: string;
 
+    @Column()
+    people_id!: number;
+
     @Index({ unique: true })
     @Column()
     slug!: string;
@@ -14,11 +17,13 @@ export class Profile {
     @Column()
     name!: string;
 
+
     toResultsProfile(): ResultsProfile {
         return {
             id: this.id,
             slug: this.slug,
             name: this.name,
+            people_id: this.people_id,
         };
     }
 }

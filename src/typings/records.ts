@@ -16,18 +16,18 @@ export interface ResultsRecordUSPA {
     status?: string;
 }
 
-
-
 // Record Params
 export interface RecordParams {
-
+    id: string;
 }
+
 // Record Query
 export interface RecordQuery {
     id: string;
 }
 
-
+/////////////////////////
+// RECORDS BY STATE
 
 // Records By State, Results
 export interface ResultsRecordsByState {
@@ -35,13 +35,29 @@ export interface ResultsRecordsByState {
     state: string;
     records: Array<ResultsRecordUSPA>;
 }
+
 // Records By State Params
 export interface RecordsByStateParams {
     abbr: string;
 }
-// Records By State Query
-export interface RecordsByStateQuery {
 
-}
+// Records By State Query
+// export interface RecordsByStateQuery {
+// }
+
 // Records By State Error Codes
 export type RecordsByStateErrorCodes = 'RECORDS_NOT_FOUND' | 'ERROR_FINDING_RECORDS';
+
+/////////////////////////
+// RECORDS BY PERSON
+
+// Records By Person, Results
+export interface ResultsRecordsByPerson {
+    id: string;
+    records: Array<ResultsRecordUSPA>;
+}
+
+// Records By Person Params
+export interface RecordsByPersonParams {
+    id: string;
+}

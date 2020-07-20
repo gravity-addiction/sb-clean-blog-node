@@ -13,7 +13,7 @@ export const routes: fastify.RoutePlugin = async function(instance, options): Pr
     instance.register(health);
     instance.register(auth, { prefix: '/auth' });
     instance.register(posts, { prefix: '/posts' });
-    instance.register(profiles, { prefix: '/profiles' });
+    instance.register(profiles, { prefix: '/profile' });
     instance.register(records, { prefix: '/records' });
 
     if (config.internal) {

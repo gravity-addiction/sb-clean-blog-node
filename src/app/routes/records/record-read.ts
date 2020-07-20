@@ -20,7 +20,7 @@ export const handler: fastify.RequestHandlerWithParams<RecordParams> = async fun
     const recordQuery: RecordQuery = request.query as RecordQuery;
     const recordParams: RecordParams = request.params;
 
-    let foundRecordUSPA: RecordUSPA = new RecordUSPA();
+    const foundRecordUSPA: RecordUSPA = new RecordUSPA();
 
     return foundRecordUSPA.toResultsRecordUSPA();
 };
@@ -51,7 +51,7 @@ const schema = {
                 location: { type: 'string' },
                 holders: { type: 'string' },
                 notes: { type: 'string' },
-                status: { type: 'string' }
+                status: { type: 'string' },
             },
         },
     },

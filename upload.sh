@@ -1,0 +1,2 @@
+#!/bin/sh
+scp -i ~/.ssh/strictdev2_macbook.pem build/sb-clean-blog-node.js ec2-user@aws-2.strictdev.com:/usr/local/www/apache24/data/skydiveorbust.com/sb-api/build/ && ssh -i ~/.ssh/strictdev2_macbook.pem ec2-user@aws-2.strictdev.com 'sudo -u pm2 pm2 restart skydiveorbust'

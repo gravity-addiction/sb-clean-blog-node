@@ -65,7 +65,7 @@ export class RecordUSPA {
             holders: this.holders,
             judges: this.judges,
             notes: this.notes,
-            status: this.status
+            status: this.status,
         };
     }
 }
